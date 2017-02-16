@@ -1,6 +1,7 @@
 package ru.learning.exersise;
 
 import java.util.Arrays;
+import java.util.NoSuchElementException;
 
 /**
  * Class for exercise MyArray.
@@ -48,6 +49,17 @@ public class MyArray {
         }
         cursor++;
         return cursor - 1;
+    }
+
+    /**
+     *
+     * @param index
+     * @return
+     */
+    public int get(int index) {
+        if (index >= myArray.length)
+            throw new NoSuchElementException();
+        return myArray[index];
     }
 
     /**

@@ -11,6 +11,7 @@ public class Main {
         myArray.add(4);
         myArray.add(5);
         int index = myArray.add(5);
+        int a = myArray.get(3);
 
         myArray.showArray();
     }
