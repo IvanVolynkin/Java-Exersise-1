@@ -1,5 +1,7 @@
 package ru.learning.exersise;
 
+import com.sun.deploy.util.ArrayUtil;
+
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 
@@ -17,6 +19,11 @@ public class MyArray {
      *
      */
     private int[] myArray;
+
+    /**
+     *
+     */
+    private final static double increaseIndex = 1.5;
 
     /**
      *
@@ -44,7 +51,7 @@ public class MyArray {
         if(myArray.length > cursor) {
             myArray[cursor] = elem;
         } else {
-            myArray = Arrays.copyOf(myArray, cursor + 1);
+            myArray = Arrays.copyOf(myArray, (int) (myArray.length * increaseIndex));
             myArray[cursor] = elem;
         }
         cursor++;
