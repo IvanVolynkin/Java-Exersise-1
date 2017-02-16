@@ -15,19 +15,13 @@ public class MyArray {
     /**
      *
      */
-    private int arraySize;
-
-    /**
-     *
-     */
     private int[] myArray;
 
     /**
      *
      */
     public MyArray() {
-        this.arraySize = 10;
-        myArray = new int[this.arraySize];
+        myArray = new int[10];
         this.cursor = 0;
     }
 
@@ -36,8 +30,7 @@ public class MyArray {
      * @param arraySize
      */
     public MyArray (int arraySize) {
-        this.arraySize = arraySize;
-        myArray = new int[this.arraySize];
+        myArray = new int[arraySize];
         this.cursor = 0;
     }
 
@@ -47,9 +40,9 @@ public class MyArray {
      * @return
      */
     public int add(int elem) {
-        try {
+        if(myArray.length > cursor) {
             myArray[cursor] = elem;
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } else {
             myArray = Arrays.copyOf(myArray, cursor + 1);
             myArray[cursor] = elem;
         }
