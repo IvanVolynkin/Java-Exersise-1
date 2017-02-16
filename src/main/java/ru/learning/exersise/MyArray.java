@@ -23,11 +23,6 @@ public class MyArray {
     /**
      *
      */
-    private final static double increaseIndex = 1.5;
-
-    /**
-     *
-     */
     public MyArray() {
         myArray = new int[10];
         this.cursor = 0;
@@ -51,7 +46,7 @@ public class MyArray {
         if(myArray.length > cursor) {
             myArray[cursor] = elem;
         } else {
-            myArray = Arrays.copyOf(myArray, (int) (myArray.length * increaseIndex));
+            myArray = Arrays.copyOf(myArray, myArray.length + myArray.length/2);
             myArray[cursor] = elem;
         }
         cursor++;
