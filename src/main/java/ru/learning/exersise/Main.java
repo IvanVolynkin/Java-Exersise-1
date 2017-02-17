@@ -6,13 +6,16 @@ package ru.learning.exersise;
 public class Main {
 
     public static void main(String[] args) {
-        MyArray myArray = new MyArray(2);
+        DynamicArray dynamicArray = new DynamicArray(5);
 
-        myArray.add(4);
-        myArray.add(5);
-        int index = myArray.add(5);
-        int a = myArray.get(3);
+        dynamicArray.add(1);
+        dynamicArray.add(2);
+        dynamicArray.add(3);
+        dynamicArray.add(4);
+        dynamicArray.add(5);
+        dynamicArray.remove(1);
 
-        myArray.showArray();
+
+        dynamicArray.showArray();
     }
 }
