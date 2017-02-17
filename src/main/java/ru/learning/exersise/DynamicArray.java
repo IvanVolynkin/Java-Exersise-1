@@ -78,6 +78,43 @@ public class DynamicArray {
     }
 
     /**
+     *
+     * @param e
+     * @return
+     */
+    public int removeElement(int e) {
+        for (int i = 0; i < elements.length; i++) {
+            if (e == elements[i]) {
+                remove(i);
+                return i;
+            }
+        }
+        throw new NoSuchElementException();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public int size() {
+        return cursor - 1;
+    }
+
+    /**
+     *
+     * @param e
+     * @return
+     */
+    public int indexOf(int e) {
+        for (int i = 0; i < elements.length; i++) {
+            if (e == elements[i])
+                return i;
+        }
+
+        return -1;
+    }
+
+    /**
      * This is a test method to show values of array.
      */
     public void showArray() {
