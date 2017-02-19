@@ -1,12 +1,13 @@
 package ru.learning.exersise;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 /**
  * Class for exercise MyArray.
  */
-public class GenericDynamicArray {
+public class GenericDynamicArray<T> {
 
     public static final int DEFAULT_SIZE = 10;
 
@@ -18,13 +19,13 @@ public class GenericDynamicArray {
     /**
      *
      */
-    private int[] elements;
+    private T[] elements;
 
     /**
      *
      */
-    public GenericDynamicArray() {
-        elements = new int[DEFAULT_SIZE];
+    public GenericDynamicArray(Class<T> type) {
+        elements = (T[]) Array.newInstance(type , DEFAULT_SIZE);
         this.cursor = 0;
     }
 
@@ -32,8 +33,8 @@ public class GenericDynamicArray {
      *
      * @param arraySize
      */
-    public GenericDynamicArray(int arraySize) {
-        elements = new int[arraySize];
+    public GenericDynamicArray(Class<T> type, int arraySize) {
+        elements = (T[]) Array.newInstance(type, arraySize);
         this.cursor = 0;
     }
 
@@ -42,7 +43,7 @@ public class GenericDynamicArray {
      * @param elem
      * @return
      */
-    public int add(int elem) {
+    public int add(T elem) {
         if(elements.length > cursor) {
             elements[cursor] = elem;
         } else {
@@ -58,7 +59,7 @@ public class GenericDynamicArray {
      * @param index
      * @return
      */
-    public int get(int index) {
+    public T get(int index) {
         if (index >= elements.length)
             throw new NoSuchElementException();
         return elements[index];
@@ -69,11 +70,11 @@ public class GenericDynamicArray {
      * @param index
      * @return
      */
-    public int remove(int index) {
+    public T remove(int index) {
         if (elements.length <= index)
             throw new NoSuchElementException();
 
-        int deletedElement = elements[index];
+        T deletedElement = elements[index];
         System.arraycopy(elements, index + 1, elements, index, elements.length - 1 - index);
         cursor--;
         return deletedElement;
@@ -84,7 +85,7 @@ public class GenericDynamicArray {
      * @param e
      * @return
      */
-    public int removeElement(int e) {
+    public int removeElement(T e) {
         for (int i = 0; i < elements.length; i++) {
             if (e == elements[i]) {
                 remove(i);
@@ -107,7 +108,7 @@ public class GenericDynamicArray {
      * @param e
      * @return
      */
-    public int indexOf(int e) {
+    public int indexOf(T e) {
         for (int i = 0; i < elements.length; i++) {
             if (e == elements[i])
                 return i;
