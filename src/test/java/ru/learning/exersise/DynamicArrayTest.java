@@ -1,6 +1,7 @@
 package ru.learning.exersise;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.NoSuchElementException;
@@ -13,6 +14,11 @@ import static org.junit.Assert.assertEquals;
 public class DynamicArrayTest {
 
     private DynamicArray dynamicArray;
+
+    @Before
+    public void init() {
+
+    }
 
     @Test
     public void add() throws Exception {
@@ -59,6 +65,19 @@ public class DynamicArrayTest {
         Assert.assertEquals(7, dynamicArray.remove(6));
 
         dynamicArray.remove(20);
+    }
+
+    @Test
+    public void indexOf() {
+        dynamicArray = new DynamicArray();
+
+        for (int i = 1; i < 11; i++) {
+            dynamicArray.add(i);
+        }
+
+        for (int i = 1; i < 11; i++) {
+            Assert.assertEquals(i - 1, dynamicArray.indexOf(i));
+        }
     }
 
 }

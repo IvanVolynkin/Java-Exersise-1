@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 /**
  * Class for exercise MyArray.
  */
-public class DynamicArray {
+public class GenericDynamicArray {
 
     public static final int DEFAULT_SIZE = 10;
 
@@ -23,7 +23,7 @@ public class DynamicArray {
     /**
      *
      */
-    public DynamicArray() {
+    public GenericDynamicArray() {
         elements = new int[DEFAULT_SIZE];
         this.cursor = 0;
     }
@@ -32,7 +32,7 @@ public class DynamicArray {
      *
      * @param arraySize
      */
-    public DynamicArray(int arraySize) {
+    public GenericDynamicArray(int arraySize) {
         elements = new int[arraySize];
         this.cursor = 0;
     }

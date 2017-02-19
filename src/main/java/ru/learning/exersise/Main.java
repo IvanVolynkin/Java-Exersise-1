@@ -14,6 +14,9 @@ public class Main {
         dynamicArray.add(4);
         dynamicArray.add(5);
         dynamicArray.remove(1);
+        dynamicArray.get(4);
+        dynamicArray.indexOf(5);
+        dynamicArray.removeElement(4);
 
 
         dynamicArray.showArray();
