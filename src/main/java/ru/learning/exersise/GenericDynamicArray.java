@@ -19,13 +19,13 @@ public class GenericDynamicArray<T> {
     /**
      *
      */
-    private T[] elements;
+    private Object[] elements;
 
     /**
      *
      */
     public GenericDynamicArray() {
-        elements = ((T[]) new Object[DEFAULT_SIZE]);
+        elements = new Object[DEFAULT_SIZE];
         this.cursor = 0;
     }
 
@@ -34,7 +34,7 @@ public class GenericDynamicArray<T> {
      * @param arraySize
      */
     public GenericDynamicArray(int arraySize) {
-        elements = (T[]) new Object[arraySize];
+        elements = new Object[arraySize];
         this.cursor = 0;
     }
 
@@ -62,7 +62,7 @@ public class GenericDynamicArray<T> {
     public T get(int index) {
         if (index >= elements.length)
             throw new NoSuchElementException();
-        return elements[index];
+        return (T) elements[index];
     }
 
     /**
@@ -74,10 +74,10 @@ public class GenericDynamicArray<T> {
         if (elements.length <= index)
             throw new NoSuchElementException();
 
-        T deletedElement = elements[index];
+        Object deletedElement = elements[index];
         System.arraycopy(elements, index + 1, elements, index, elements.length - 1 - index);
         cursor--;
-        return deletedElement;
+        return (T) deletedElement;
     }
 
     /**
