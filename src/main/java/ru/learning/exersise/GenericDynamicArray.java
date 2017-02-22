@@ -24,8 +24,8 @@ public class GenericDynamicArray<T> {
     /**
      *
      */
-    public GenericDynamicArray(Class<T> type) {
-        elements = (T[]) Array.newInstance(type , DEFAULT_SIZE);
+    public GenericDynamicArray() {
+        elements = ((T[]) new Object[DEFAULT_SIZE]);
         this.cursor = 0;
     }
 
@@ -33,8 +33,8 @@ public class GenericDynamicArray<T> {
      *
      * @param arraySize
      */
-    public GenericDynamicArray(Class<T> type, int arraySize) {
-        elements = (T[]) Array.newInstance(type, arraySize);
+    public GenericDynamicArray(int arraySize) {
+        elements = (T[]) new Object[arraySize];
         this.cursor = 0;
     }
 
