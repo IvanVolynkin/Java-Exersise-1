@@ -23,7 +23,6 @@ public class GenericLinkedList<T> implements GenericCollection<T> {
     }
 
     public GenericLinkedList(GenericCollection<T> collection) {
-
     }
 
     public int add(T elem) {
@@ -81,7 +80,7 @@ public class GenericLinkedList<T> implements GenericCollection<T> {
      *
      * @param <T>
      */
-    class ListNode<T> {
+    private class ListNode<T> {
 
         T value;
 
@@ -96,14 +95,6 @@ public class GenericLinkedList<T> implements GenericCollection<T> {
             this.value = element;
             this.previous = previous;
             this.next = next;
-        }
-
-        ListNode<T> next(){
-            return next;
-        }
-
-        ListNode<T> previous() {
-            return previous;
         }
     }
 }
