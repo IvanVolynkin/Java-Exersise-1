@@ -2,12 +2,13 @@ package ru.learning.exersise;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
  * Class for exercise MyArray.
  */
-public class GenericDynamicArray<T> {
+public class GenericDynamicArray<T> implements GenericCollection<T> {
 
     public static final int DEFAULT_SIZE = 10;
 
@@ -125,4 +126,21 @@ public class GenericDynamicArray<T> {
             System.out.println(elements[i]);
         }
     }
+
+    public Iterator<T> iterator() {
+        return new GenericDynamicArrayIterator<T>();
+    }
+
+    private class GenericDynamicArrayIterator<T> implements Iterator<T> {
+
+        public boolean hasNext() {
+            return false;
+        }
+
+        public T next() {
+            return null;
+        }
+
+    }
+
 }

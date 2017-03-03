@@ -3,7 +3,7 @@ package ru.learning.exersise;
 /**
  * Created by Ivan.Volynkin on 25.02.2017.
  */
-public interface GenericCollection<T> {
+public interface GenericCollection<T> extends Iterable<T> {
 
     public int add(T elem);
 

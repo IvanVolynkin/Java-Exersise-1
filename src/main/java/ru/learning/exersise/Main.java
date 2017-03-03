@@ -1,15 +1,19 @@
 package ru.learning.exersise;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * Main method for testing MyArray class.
  */
 public class Main {
 
     public static void main(String[] args) {
-        GenericDynamicArray<Integer> genericDynamicArray1 = new GenericDynamicArray<Integer>();
-        GenericDynamicArray<String> genericDynamicArray2 = new GenericDynamicArray<String>();
+        GenericLinkedList<Integer> list = new GenericLinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        }
 
-        genericDynamicArray1.showArray();
-        genericDynamicArray2.showArray();
-    }
 }
