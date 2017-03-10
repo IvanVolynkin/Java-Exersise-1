@@ -1,9 +1,6 @@
 package ru.learning.exersise;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Spliterator;
+import java.util.*;
 
 /**
  * Created by Ivan.Volynkin on 25.02.2017.
@@ -23,6 +20,9 @@ public class GenericLinkedList<T> implements GenericCollection<T> {
     }
 
     public GenericLinkedList(GenericCollection<T> collection) {
+        for (T element : collection) {
+
+        }
     }
 
     public int add(T elem) {
@@ -52,7 +52,7 @@ public class GenericLinkedList<T> implements GenericCollection<T> {
     }
 
     public int size() {
-        return 0;
+        return size;
     }
 
     public int indexOf(T e) {
@@ -65,14 +65,24 @@ public class GenericLinkedList<T> implements GenericCollection<T> {
 
     private class GenericLinkedListIterator<T> implements Iterator<T> {
 
+        private ListNode<T> lastReturned;
+        private ListNode<T> next;
+        private int nextIndex;
+
         @Override
         public boolean hasNext() {
-            return false;
+            return nextIndex < size;
         }
 
         @Override
         public T next() {
-            return null;
+            if (!hasNext())
+                throw new NoSuchElementException();
+
+            lastReturned = next;
+            next = next.next;
+            nextIndex++;
+            return lastReturned.value;
         }
     }
 
