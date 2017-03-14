@@ -78,17 +78,17 @@ public class GenericLinkedList<T> implements GenericCollection<T> {
     }
 
     public Iterator<T> iterator() {
-        return new GenericLinkedListIterator<T>();
+        return new GenericLinkedListIterator();
     }
 
-    private class GenericLinkedListIterator<T> implements Iterator<T> {
+    private class GenericLinkedListIterator implements Iterator<T> {
 
         private ListNode<T> lastReturned;
         private ListNode<T> next;
         private int nextIndex;
 
         public GenericLinkedListIterator() {
-            next = (ListNode<T>) head;
+            next = head;
         }
 
 
@@ -111,19 +111,19 @@ public class GenericLinkedList<T> implements GenericCollection<T> {
 
     /**
      *
-     * @param <T>
+     * @param
      */
-    private class ListNode<T> {
+    private class ListNode<U extends T> {
 
-        T value;
+        U value;
 
         private int state;
 
-        private ListNode<T> previous;
+        private ListNode<U> previous;
 
-        private ListNode<T> next;
+        private ListNode<U> next;
 
-        public ListNode(T element, ListNode<T> previous, ListNode<T> next) {
+        public ListNode(U element, ListNode<U> previous, ListNode<U> next) {
             this.state = 0;
             this.value = element;
             this.previous = previous;

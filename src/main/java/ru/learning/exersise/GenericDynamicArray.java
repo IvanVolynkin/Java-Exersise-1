@@ -127,10 +127,10 @@ public class GenericDynamicArray<T> implements GenericCollection<T> {
     }
 
     public Iterator<T> iterator() {
-        return new GenericDynamicArrayIterator<T>();
+        return new GenericDynamicArrayIterator();
     }
 
-    private class GenericDynamicArrayIterator<T> implements Iterator<T> {
+    private class GenericDynamicArrayIterator implements Iterator<T> {
 
         int cursor;
         int lastRet = -1;
