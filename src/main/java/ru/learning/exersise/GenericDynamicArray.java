@@ -1,6 +1,5 @@
 package ru.learning.exersise;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -101,7 +100,7 @@ public class GenericDynamicArray<T> implements GenericCollection<T> {
      * @return
      */
     public int size() {
-        return cursor - 1;
+        return cursor;
     }
 
     /**
@@ -133,14 +132,19 @@ public class GenericDynamicArray<T> implements GenericCollection<T> {
 
     private class GenericDynamicArrayIterator<T> implements Iterator<T> {
 
+        int cursor;
+        int lastRet = -1;
+
         public boolean hasNext() {
-            return false;
+            return cursor != size();
         }
 
         public T next() {
-            return null;
+            int i = cursor;
+            if (i >= size())
+                throw new NoSuchElementException();
+            cursor = i + 1;
+            return (T) elements[lastRet = i];
         }
-
     }
-
 }

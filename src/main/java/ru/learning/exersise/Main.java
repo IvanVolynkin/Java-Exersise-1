@@ -10,10 +10,13 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        GenericLinkedList<Integer> list = new GenericLinkedList<>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
+        GenericDynamicArray<String> arr = new GenericDynamicArray();
+        arr.add("123");
+        arr.add("abc");
+        arr.add("A1b2C3");
+        for (String element : arr) {
+            System.out.println("This is element: " + element);
         }
+    }
 
 }
