@@ -7,24 +7,36 @@ import java.util.*;
  */
 public class GenericLinkedList<T> implements GenericCollection<T> {
 
-    private int size;
+    private int size = 0;
 
-    private int cursor;
+    private int cursor = 0;
 
-    private ListNode<T>  head;
+    private ListNode<T> head;
 
     private ListNode<T> tail;
 
+    /**
+     *
+     */
     public GenericLinkedList() {
 
     }
 
+    /**
+     *
+     * @param collection
+     */
     public GenericLinkedList(GenericCollection<T> collection) {
         for (T element : collection) {
-
+            add(element);
         }
     }
 
+    /**
+     *
+     * @param elem
+     * @return
+     */
     public int add(T elem) {
         final ListNode<T> currentTail = tail;
         final ListNode<T> newListNode = new ListNode<>(elem, currentTail, null);
@@ -40,6 +52,12 @@ public class GenericLinkedList<T> implements GenericCollection<T> {
     }
 
     public T get(int index) {
+        int counter = 0;
+        for (T element: this) {
+            if (counter == index)
+                    return element;
+            counter++;
+        }
         return null;
     }
 
@@ -68,6 +86,11 @@ public class GenericLinkedList<T> implements GenericCollection<T> {
         private ListNode<T> lastReturned;
         private ListNode<T> next;
         private int nextIndex;
+
+        public GenericLinkedListIterator() {
+            next = (ListNode<T>) head;
+        }
+
 
         @Override
         public boolean hasNext() {

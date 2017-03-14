@@ -14,9 +14,11 @@ public class Main {
         arr.add("123");
         arr.add("abc");
         arr.add("A1b2C3");
-        for (String element : arr) {
-            System.out.println("This is element: " + element);
-        }
+
+        GenericLinkedList<String> list = new GenericLinkedList<>(arr);
+        System.out.println(list.get(1));
+        System.out.println(list.get(2));
+        System.out.println(list.get(0));
     }
 
 }
