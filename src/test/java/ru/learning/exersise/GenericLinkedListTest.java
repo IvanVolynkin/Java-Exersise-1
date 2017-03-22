@@ -35,7 +35,7 @@ public class GenericLinkedListTest {
 
     }
 
-    @Test (expected = NoSuchElementException.class)
+    @Test
     public void get() throws Exception {
         Assert.assertTrue(listInteger.get(0) == 1);
 
@@ -43,7 +43,15 @@ public class GenericLinkedListTest {
 
         Assert.assertTrue(listInteger.get(4) == 5);
 
-        listInteger.get(10);
+        try {
+            listInteger.get(10);
+            Assert.fail();
+        } catch (NoSuchElementException e) {}
+
+        try {
+            listInteger.get(-1);
+            Assert.fail();
+        } catch (NoSuchElementException e) {}
     }
 
     @Test

@@ -23,6 +23,8 @@ public class Main {
         System.out.println(list.get(0));
         System.out.println(list.get(4));
         System.out.println(list.get(3));
+
+        list.remove(4);
     }
 
 }

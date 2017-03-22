@@ -75,7 +75,34 @@ public class GenericLinkedList<T> implements GenericCollection<T> {
     }
 
     public T remove(int index) {
-        return null;
+        if (!checkIndex(index))
+            throw new NoSuchElementException();
+
+        ListNode<T> item;
+
+        if (index <= size/2) {
+            item = head;
+            for (int i = 0; i < index; i++)
+                item = item.next;
+        } else {
+            item = tail;
+            for (int i = size - 1; i > index; i--)
+                item = item.previous;
+        }
+
+        if (index == 0) {
+            item.next.previous = null;
+            head = item.next;
+        } else if (index == size - 1) {
+            item.previous.next = null;
+            tail = item.previous;
+        } else {
+            item.previous.next = item.next;
+            item.next.previous = item.previous;
+        }
+        size--;
+        cursor--;
+        return item.value;
     }
 
     public int removeElement(T e) {
