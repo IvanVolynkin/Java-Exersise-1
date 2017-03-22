@@ -11,14 +11,18 @@ public class Main {
 
     public static void main(String[] args) {
         GenericDynamicArray<String> arr = new GenericDynamicArray();
-        arr.add("123");
-        arr.add("abc");
-        arr.add("A1b2C3");
+        arr.add("123"); // 0
+        arr.add("456"); // 1
+        arr.add("abc"); // 2
+        arr.add("ABC"); // 3
+        arr.add("A1b2C3"); // 4
 
-        GenericLinkedList<String> list = new GenericLinkedList<>(arr);
+        GenericCollection<String> list = new GenericLinkedList<>(arr);
         System.out.println(list.get(1));
         System.out.println(list.get(2));
         System.out.println(list.get(0));
+        System.out.println(list.get(4));
+        System.out.println(list.get(3));
     }
 
 }

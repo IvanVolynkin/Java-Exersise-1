@@ -52,13 +52,26 @@ public class GenericLinkedList<T> implements GenericCollection<T> {
     }
 
     public T get(int index) {
-        int counter = 0;
-        for (T element: this) {
-            if (counter == index)
-                    return element;
-            counter++;
+        if (!checkIndex(index))
+            throw new NoSuchElementException();
+
+        ListNode<T> item;
+
+        if (index <= size/2) {
+            item = head;
+            for (int i = 0; i < index; i++)
+                item = item.next;
+        } else {
+            item = tail;
+            for (int i = size - 1; i > index; i--)
+                item = item.previous;
         }
-        return null;
+
+        return item.value;
+    }
+
+    private boolean checkIndex(int index) {
+        return !(index < 0 || index > (size - 1));
     }
 
     public T remove(int index) {
