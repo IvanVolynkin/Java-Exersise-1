@@ -10,21 +10,21 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        GenericDynamicArray<String> arr = new GenericDynamicArray();
-        arr.add("123"); // 0
-        arr.add("456"); // 1
-        arr.add("abc"); // 2
-        arr.add("ABC"); // 3
-        arr.add("A1b2C3"); // 4
+        GenericDynamicArray<Integer> arr = new GenericDynamicArray();
+        arr.add(1); // 0
+        arr.add(3); // 1
+        arr.add(5); // 2
+        arr.add(10); // 3
+        arr.add(7); // 4
 
-        GenericCollection<String> list = new GenericLinkedList<>(arr);
+        GenericCollection<Integer> list = new GenericLinkedList<>(arr);
         System.out.println(list.get(1));
         System.out.println(list.get(2));
         System.out.println(list.get(0));
         System.out.println(list.get(4));
         System.out.println(list.get(3));
 
-        list.remove(4);
+        list.indexOf(10);
     }
 
 }

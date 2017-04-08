@@ -105,16 +105,38 @@ public class GenericLinkedList<T> implements GenericCollection<T> {
         return item.value;
     }
 
-    public int removeElement(T e) {
-        return 0;
+    public int removeElement(T element) {
+
+        int index;
+
+        ListNode<T> item = head;
+
+        for (index = 0; index < size; index++) {
+            if(item.value == element) {
+                remove(index);
+                return index;
+            }
+            item = item.next;
+        }
+        throw  new NoSuchElementException();
     }
 
     public int size() {
         return size;
     }
 
-    public int indexOf(T e) {
-        return 0;
+    public int indexOf(T element) {
+
+        int index;
+
+        ListNode<T> item = head;
+
+        for (index = 0; index < size; index++) {
+            if (item.value == element)
+                return index;
+            item = item.next;
+        }
+        throw new NoSuchElementException();
     }
 
     public Iterator<T> iterator() {
@@ -157,14 +179,11 @@ public class GenericLinkedList<T> implements GenericCollection<T> {
 
         U value;
 
-        private int state;
-
         private ListNode<U> previous;
 
         private ListNode<U> next;
 
         public ListNode(U element, ListNode<U> previous, ListNode<U> next) {
-            this.state = 0;
             this.value = element;
             this.previous = previous;
             this.next = next;
