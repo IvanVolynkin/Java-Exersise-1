@@ -110,7 +110,7 @@ public class GenericDynamicArray<T> implements GenericCollection<T> {
      */
     public int indexOf(T e) {
         for (int i = 0; i < elements.length; i++) {
-            if (e == elements[i])
+            if (e.equals(elements[i]))
                 return i;
         }
 

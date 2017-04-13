@@ -145,12 +145,13 @@ public class GenericLinkedList<T> implements GenericCollection<T> {
 
     private class GenericLinkedListIterator implements Iterator<T> {
 
-        private ListNode<T> lastReturned;
         private ListNode<T> next;
         private int nextIndex;
+        private int initialSize;
 
         public GenericLinkedListIterator() {
             next = head;
+            initialSize = size;
         }
 
 
@@ -161,10 +162,13 @@ public class GenericLinkedList<T> implements GenericCollection<T> {
 
         @Override
         public T next() {
+            if(initialSize != size)
+                throw new ConcurrentModificationException();
+
             if (!hasNext())
                 throw new NoSuchElementException();
 
-            lastReturned = next;
+            ListNode<T> lastReturned = next;
             next = next.next;
             nextIndex++;
             return lastReturned.value;

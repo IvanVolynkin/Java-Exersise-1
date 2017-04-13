@@ -14,17 +14,14 @@ public class Main {
         arr.add(1); // 0
         arr.add(3); // 1
         arr.add(5); // 2
-        arr.add(10); // 3
+        arr.add(128); // 3
         arr.add(7); // 4
 
-        GenericCollection<Integer> list = new GenericLinkedList<>(arr);
-        System.out.println(list.get(1));
-        System.out.println(list.get(2));
-        System.out.println(list.get(0));
-        System.out.println(list.get(4));
-        System.out.println(list.get(3));
 
-        list.indexOf(10);
+        System.out.println(arr.indexOf(128));
+//        GenericCollection<Integer> list = new GenericLinkedList<>(arr);
+//
+//        list.indexOf(10);
     }
 
 }
