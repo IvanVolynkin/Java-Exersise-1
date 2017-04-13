@@ -87,7 +87,7 @@ public class GenericDynamicArray<T> implements GenericCollection<T> {
      */
     public int removeElement(T e) {
         for (int i = 0; i < elements.length; i++) {
-            if (e == elements[i]) {
+            if (e.equals(elements[i])) {
                 remove(i);
                 return i;
             }

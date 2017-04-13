@@ -112,7 +112,7 @@ public class GenericLinkedList<T> implements GenericCollection<T> {
         ListNode<T> item = head;
 
         for (index = 0; index < size; index++) {
-            if(item.value == element) {
+            if(item.value.equals(element)) {
                 remove(index);
                 return index;
             }
@@ -132,7 +132,7 @@ public class GenericLinkedList<T> implements GenericCollection<T> {
         ListNode<T> item = head;
 
         for (index = 0; index < size; index++) {
-            if (item.value == element)
+            if (item.value.equals(element))
                 return index;
             item = item.next;
         }
